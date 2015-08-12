@@ -18,6 +18,8 @@ c=starblk
 
 #Configure RPC
 NUCONFIG='%s/.nu/nu.conf'%os.getenv("HOME")
+#If you are windows, comment you the previous line and uncomment the following:
+#NUCONFIG=r'%s\nu\nu.conf'%os.getenv("APPDATA")
 opts = dict(tuple(line.strip().replace(' ','').split('=')) for line in open(NUCONFIG).readlines())
 try:
   rpc = jsonrpc.ServiceProxy("http://%s:%s@127.0.0.1:%s"%(
